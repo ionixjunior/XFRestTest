@@ -18,6 +18,11 @@ namespace Core.Services
 		{
 			return await base.Get<ContactModel> (_endPoint, id);
 		}
+
+		public async Task<ContactModel> Post(ContactModel contactModel)
+		{
+			return await base.Post<ContactModel> (_endPoint, contactModel);
+		}
 	}
 }
 

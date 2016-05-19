@@ -3,6 +3,10 @@
 		     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		     x:Class="Core.Views.ContactDetailView" 
 		     Title="Detalhes">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Salvar" Command="{Binding SaveCommand}" />
+	</ContentPage.ToolbarItems>
+
 	<ContentPage.Content>
 		<TableView Intent="Form">
 			<TableRoot>

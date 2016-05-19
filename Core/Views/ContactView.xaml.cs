@@ -9,13 +9,20 @@ namespace Core.Views
 {
 	public partial class ContactView : ContentPage
 	{
+		private ContactViewModel _viewModel { get; set; }
+
 		public ContactView ()
 		{
 			InitializeComponent ();
 
-			ContactViewModel viewModel = new ContactViewModel ();
-			viewModel.LoadData ();
-			BindingContext = viewModel;
+			_viewModel = new ContactViewModel ();
+			BindingContext = _viewModel;
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+			_viewModel.LoadData ();
 		}
 
 		public void OnItemTapped(object sender, ItemTappedEventArgs args)
@@ -23,6 +30,11 @@ namespace Core.Views
 			((ListView)sender).SelectedItem = null;
 			ContactModel contactModel = (ContactModel)args.Item;
 			Navigation.PushAsync (new ContactDetailView(contactModel.Id));
+		}
+
+		public void OnAdd(object sender, EventArgs args)
+		{
+			Navigation.PushAsync (new ContactDetailView(null));
 		}
 	}
 }
