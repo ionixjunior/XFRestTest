@@ -61,6 +61,11 @@ namespace Core.ViewModels
 			{
 				await ContactService.Post (Contact);
 				await Application.Current.MainPage.Navigation.PopAsync ();
+			} 
+			else 
+			{
+				await ContactService.Put (Contact.Id, Contact);
+				await Application.Current.MainPage.Navigation.PopAsync ();
 			}
 		}
 	}

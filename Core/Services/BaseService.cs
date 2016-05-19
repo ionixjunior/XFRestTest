@@ -46,6 +46,19 @@ namespace Core.Services
 			string result = await response.Content.ReadAsStringAsync ();
 			return JsonConvert.DeserializeObject<TResult>(result);
 		}
+
+		public async Task<TResult> Put<TResult>(string endPoint, string id, TResult data) where TResult : class
+		{
+			string url = string.Format("{0}{1}/{2}", ConfigApp.RestApiBaseUrl, endPoint, id);
+
+			HttpClient httpClient = new HttpClient ();
+			HttpRequestMessage request = new HttpRequestMessage (HttpMethod.Put, url);
+			request.Headers.Accept.Add (new MediaTypeWithQualityHeaderValue ("application/json"));
+			request.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+			HttpResponseMessage response = await httpClient.SendAsync (request);
+			string result = await response.Content.ReadAsStringAsync ();
+			return JsonConvert.DeserializeObject<TResult>(result);
+		}
 	}
 }
 

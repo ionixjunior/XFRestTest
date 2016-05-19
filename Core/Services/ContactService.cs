@@ -23,6 +23,11 @@ namespace Core.Services
 		{
 			return await base.Post<ContactModel> (_endPoint, contactModel);
 		}
+
+		public async Task<ContactModel> Put(string id, ContactModel contactModel)
+		{
+			return await base.Put (_endPoint, id, contactModel);
+		}
 	}
 }
 
