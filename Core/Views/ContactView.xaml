@@ -4,7 +4,7 @@
 			 x:Class="Core.Views.ContactView" 
 			 Title="Contatos">
 	<ContentPage.Content>
-		<ListView ItemsSource="{Binding Contacts}">
+		<ListView ItemsSource="{Binding Contacts}" ItemTapped="OnItemTapped">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<TextCell Text="{Binding FirstName}" Detail="{Binding Email}" />

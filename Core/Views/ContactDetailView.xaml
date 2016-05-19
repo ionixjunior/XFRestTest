@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		     x:Class="Core.Views.ContactDetailView" 
+		     Title="Detalhes">
+	<ContentPage.Content>
+		<TableView Intent="Form">
+			<TableRoot>
+				<TableSection>
+					<EntryCell Label="Nome" Text="{Binding Contact.FirstName}" />
+					<EntryCell Label="Sobrenome " Text="{Binding Contact.LastName}" />
+					<EntryCell Label="Email " Text="{Binding Contact.Email}" Keyboard="Email" />
+				</TableSection>
+			</TableRoot>
+		</TableView>
+	</ContentPage.Content>
+</ContentPage>

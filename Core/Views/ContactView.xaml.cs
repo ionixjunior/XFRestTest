@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Core.ViewModels;
+using Core.Models;
 
 namespace Core.Views
 {
@@ -15,6 +16,13 @@ namespace Core.Views
 			ContactViewModel viewModel = new ContactViewModel ();
 			viewModel.LoadData ();
 			BindingContext = viewModel;
+		}
+
+		public void OnItemTapped(object sender, ItemTappedEventArgs args)
+		{
+			((ListView)sender).SelectedItem = null;
+			ContactModel contactModel = (ContactModel)args.Item;
+			Navigation.PushAsync (new ContactDetailView(contactModel.Id));
 		}
 	}
 }
