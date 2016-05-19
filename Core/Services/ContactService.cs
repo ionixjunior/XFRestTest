@@ -28,6 +28,11 @@ namespace Core.Services
 		{
 			return await base.Put (_endPoint, id, contactModel);
 		}
+
+		public async Task<bool> Delete(string id)
+		{
+			return await base.Delete(_endPoint, id);
+		}
 	}
 }
 

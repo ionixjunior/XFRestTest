@@ -11,6 +11,8 @@ namespace Core.ViewModels
 	{
 		public ICommand SaveCommand { get; private set; }
 
+		public ICommand DeleteCommand { get; private set; }
+
 		private ContactService _contactService { get; set; }
 
 		private ContactService ContactService
@@ -41,6 +43,7 @@ namespace Core.ViewModels
 		public ContactDetailViewModel()
 		{
 			SaveCommand = new Command (async () => await SaveExec());
+			DeleteCommand = new Command (async () => await DeleteExec());
 		}
 
 		public async void LoadData(string id)
@@ -67,6 +70,12 @@ namespace Core.ViewModels
 				await ContactService.Put (Contact.Id, Contact);
 				await Application.Current.MainPage.Navigation.PopAsync ();
 			}
+		}
+
+		private async Task DeleteExec()
+		{
+			await ContactService.Delete (Contact.Id);
+			await Application.Current.MainPage.Navigation.PopAsync ();
 		}
 	}
 }

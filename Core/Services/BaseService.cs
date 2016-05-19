@@ -59,6 +59,17 @@ namespace Core.Services
 			string result = await response.Content.ReadAsStringAsync ();
 			return JsonConvert.DeserializeObject<TResult>(result);
 		}
+
+		public async Task<bool> Delete(string endPoint, string id)
+		{
+			string url = string.Format("{0}{1}/{2}", ConfigApp.RestApiBaseUrl, endPoint, id);
+
+			HttpClient httpClient = new HttpClient ();
+			HttpRequestMessage request = new HttpRequestMessage (HttpMethod.Delete, url);
+			HttpResponseMessage response = await httpClient.SendAsync (request);
+			await response.Content.ReadAsStringAsync ();
+			return true;
+		}
 	}
 }
 

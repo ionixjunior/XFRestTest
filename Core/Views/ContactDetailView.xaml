@@ -7,7 +7,7 @@
 		<ToolbarItem Text="Salvar" Command="{Binding SaveCommand}" />
 	</ContentPage.ToolbarItems>
 
-	<ContentPage.Content>
+	<StackLayout>
 		<TableView Intent="Form">
 			<TableRoot>
 				<TableSection>
@@ -17,5 +17,7 @@
 				</TableSection>
 			</TableRoot>
 		</TableView>
-	</ContentPage.Content>
+
+		<Button Text="Apagar" TextColor="Red" Command="{Binding DeleteCommand}" />
+	</StackLayout>
 </ContentPage>
