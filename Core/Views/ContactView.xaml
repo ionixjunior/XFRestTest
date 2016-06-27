@@ -4,7 +4,7 @@
 			 x:Class="Core.Views.ContactView" 
 			 Title="Contatos">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Adicionar" Clicked="OnAdd" />
+		<ToolbarItem AutomationId="tbiAdd" Text="Adicionar" Clicked="OnAdd" />
 	</ContentPage.ToolbarItems>
 
 	<ContentPage.Content>

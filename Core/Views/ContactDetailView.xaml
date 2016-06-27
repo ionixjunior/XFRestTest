@@ -4,20 +4,25 @@
 		     x:Class="Core.Views.ContactDetailView" 
 		     Title="Detalhes">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Salvar" Command="{Binding SaveCommand}" />
+		<ToolbarItem AutomationId="tbiSave" Text="Salvar" Command="{Binding SaveCommand}" />
 	</ContentPage.ToolbarItems>
 
 	<StackLayout>
 		<TableView Intent="Form">
 			<TableRoot>
 				<TableSection>
-					<EntryCell Label="Nome" Text="{Binding Contact.FirstName}" />
-					<EntryCell Label="Sobrenome " Text="{Binding Contact.LastName}" />
-					<EntryCell Label="Email " Text="{Binding Contact.Email}" Keyboard="Email" />
+					<EntryCell AutomationId="eclFirstName" Label="Nome" Text="{Binding Contact.FirstName}" />
+					<EntryCell AutomationId="eclLastName" Label="Sobrenome" Text="{Binding Contact.LastName}" />
+					<EntryCell AutomationId="eclEmail" Label="Email" Text="{Binding Contact.Email}" Keyboard="Email" />
 				</TableSection>
 			</TableRoot>
 		</TableView>
 
-		<Button Text="Apagar" TextColor="Red" Command="{Binding DeleteCommand}" />
+		<Button 
+			AutomationId="btnDelete"
+			Text="Apagar" 
+			TextColor="Red" 
+			Command="{Binding DeleteCommand}" 
+		/>
 	</StackLayout>
 </ContentPage>
