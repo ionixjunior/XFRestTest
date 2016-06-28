@@ -10,7 +10,7 @@ namespace Core.Services
 {
 	public abstract class BaseService
 	{
-		public async Task<IList<TResult>> Get<TResult>(string endPoint) where TResult : class
+		protected async Task<IList<TResult>> Get<TResult>(string endPoint) where TResult : class
 		{
 			string url = string.Format("{0}{1}", ConfigApp.RestApiBaseUrl, endPoint);
 
@@ -22,7 +22,7 @@ namespace Core.Services
 			return JsonConvert.DeserializeObject<IList<TResult>>(result);
 		}
 
-		public async Task<TResult> Get<TResult>(string endPoint, string id) where TResult : class
+		protected async Task<TResult> Get<TResult>(string endPoint, string id) where TResult : class
 		{
 			string url = string.Format("{0}{1}/{2}", ConfigApp.RestApiBaseUrl, endPoint, id);
 
@@ -34,7 +34,7 @@ namespace Core.Services
 			return JsonConvert.DeserializeObject<TResult>(result);
 		}
 
-		public async Task<TResult> Post<TResult>(string endPoint, TResult data) where TResult : class
+		protected async Task<TResult> Post<TResult>(string endPoint, TResult data) where TResult : class
 		{
 			string url = string.Format("{0}{1}", ConfigApp.RestApiBaseUrl, endPoint);
 
@@ -47,7 +47,7 @@ namespace Core.Services
 			return JsonConvert.DeserializeObject<TResult>(result);
 		}
 
-		public async Task<TResult> Put<TResult>(string endPoint, string id, TResult data) where TResult : class
+		protected async Task<TResult> Put<TResult>(string endPoint, string id, TResult data) where TResult : class
 		{
 			string url = string.Format("{0}{1}/{2}", ConfigApp.RestApiBaseUrl, endPoint, id);
 
@@ -60,7 +60,7 @@ namespace Core.Services
 			return JsonConvert.DeserializeObject<TResult>(result);
 		}
 
-		public async Task<bool> Delete(string endPoint, string id)
+		protected async Task<bool> Delete(string endPoint, string id)
 		{
 			string url = string.Format("{0}{1}/{2}", ConfigApp.RestApiBaseUrl, endPoint, id);
 
