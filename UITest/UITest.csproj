@@ -36,10 +36,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
-    <Compile Include="Contacts\DeleteiOS.cs" />
-    <Compile Include="Contacts\DeleteAndroid.cs" />
+    <Compile Include="Contacts\DeleteiOSTest.cs" />
+    <Compile Include="Contacts\DeleteAndroidTest.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="Contacts\CrudTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

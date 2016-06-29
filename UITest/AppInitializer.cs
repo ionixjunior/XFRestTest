@@ -28,6 +28,7 @@ namespace UITest
 					// TODO: Update this path to point to your Android app and uncomment the
 					// code if the app is not included in the solution.
 					//.ApkFile ("../../../Droid/bin/Debug/xamarinforms.apk")
+					.EnableLocalScreenshots()
 					.StartApp();
 			}
 
@@ -36,6 +37,7 @@ namespace UITest
 				// TODO: Update this path to point to your iOS app and uncomment the
 				// code if the app is not included in the solution.
 				//.AppBundle ("../../../iOS/bin/iPhoneSimulator/Debug/XamarinForms.iOS.app")
+				.EnableLocalScreenshots()
 				.StartApp();
 		}
 	}
