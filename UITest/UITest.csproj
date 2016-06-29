@@ -39,6 +39,7 @@
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
     <Compile Include="Contacts\DeleteiOS.cs" />
+    <Compile Include="Contacts\DeleteAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

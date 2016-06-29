@@ -11,9 +11,65 @@
 		<TableView Intent="Form">
 			<TableRoot>
 				<TableSection>
-					<EntryCell AutomationId="eclFirstName" Label="Nome" Text="{Binding Contact.FirstName}" />
-					<EntryCell AutomationId="eclLastName" Label="Sobrenome" Text="{Binding Contact.LastName}" />
-					<EntryCell AutomationId="eclEmail" Label="Email" Text="{Binding Contact.Email}" Keyboard="Email" />
+					<ViewCell>
+						<Grid Padding="15, 0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="100" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Label 
+								Grid.Column="0" 
+								Text="Nome" 
+								VerticalTextAlignment="Center"
+							/>
+							<Entry 
+								Grid.Column="1" 
+								AutomationId="etrFirstName"
+								Text="{Binding Contact.FirstName}" 
+							/>
+						</Grid>
+					</ViewCell>
+
+					<ViewCell>
+						<Grid Padding="15, 0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="100" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Label 
+								Grid.Column="0" 
+								Text="Sobrenome" 
+								VerticalTextAlignment="Center"
+							/>
+							<Entry 
+								Grid.Column="1" 
+								AutomationId="etrLastName"
+								Text="{Binding Contact.LastName}" 
+							/>
+						</Grid>
+					</ViewCell>
+
+					<ViewCell>
+						<Grid Padding="15, 0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="100" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Label 
+								Grid.Column="0" 
+								Text="Email" 
+								VerticalTextAlignment="Center"
+							/>
+							<Entry 
+								Grid.Column="1" 
+								AutomationId="etrEmail"
+								Text="{Binding Contact.Email}" 
+							/>
+						</Grid>
+					</ViewCell>
 				</TableSection>
 			</TableRoot>
 		</TableView>

@@ -7,7 +7,7 @@ using Xamarin.UITest.Queries;
 
 namespace UITest
 {
-	//[TestFixture(Platform.Android)]
+	[TestFixture(Platform.Android)]
 	[TestFixture(Platform.iOS)]
 	public class Tests
 	{
@@ -39,44 +39,42 @@ namespace UITest
 			string email = "john@smith.com";
 
 			// Cadastro
-			app.Tap(e => e.Id("tbiAdd"));
+			//app.Tap(e => e.Id("tbiAdd"));//problemas no android
+			app.Tap(e => e.Text("Adicionar"));
 
-			app.Tap(e => e.Text("Nome"));
-			app.EnterText(firstName);
+			app.EnterText(e => e.Marked("etrFirstName"), firstName);
+			app.EnterText(e => e.Marked("etrLastName"), lastName);
+			app.EnterText(e => e.Marked("etrEmail"), email);
 
-			app.Tap(e => e.Text("Sobrenome"));
-			app.EnterText(lastName);
-
-			app.Tap(e => e.Text("Email"));
-			app.EnterText(email);
-
-			app.Tap(e => e.Id("tbiSave"));
+			//app.Tap(e => e.Id("tbiSave"));//problemas no android
+			app.Tap(e => e.Text("Salvar"));
 
 
 			// Edição
 			app.Tap(e => e.Text(firstName));
 
 			firstName = "Sr. John";
-			app.Tap(e => e.Text("Nome"));
+			app.Tap(e => e.Marked("etrFirstName"));
 			app.ClearText();
 			app.EnterText(firstName);
 
 			lastName = "A. Smith";
-			app.Tap(e => e.Text("Sobrenome"));
+			app.Tap(e => e.Marked("etrLastName"));
 			app.ClearText();
 			app.EnterText(lastName);
 
 			email = "john@asmith.com";
-			app.Tap(e => e.Text("Email"));
+			app.Tap(e => e.Marked("etrEmail"));
 			app.ClearText();
 			app.EnterText(email);
-			app.Tap(e => e.Id("tbiSave"));
+			app.Tap(e => e.Text("Salvar"));
 
 
 			// Exclusão
 			app.Tap(e => e.Text(firstName));
 
-			app.Tap(e => e.Id("btnDelete"));
+			//app.Tap(e => e.Id("btnDelete"));//problemas no android
+			app.Tap(e => e.Text("Apagar"));
 		}
 	}
 }

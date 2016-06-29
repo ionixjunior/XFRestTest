@@ -4,13 +4,13 @@ using Xamarin.UITest;
 
 namespace UITest.Contacts
 {
-	[TestFixture(Platform.iOS)]
-	public class DeleteiOS
+	[TestFixture(Platform.Android)]
+	public class DeleteAndroid
 	{
 		IApp app;
 		Platform platform;
 
-		public DeleteiOS(Platform platform)
+		public DeleteAndroid(Platform platform)
 		{
 			this.platform = platform;
 		}
@@ -22,7 +22,7 @@ namespace UITest.Contacts
 		}
 
 		[Test]
-		public void DeleteWithSwipe()
+		public void DeleteWithLongPress()
 		{
 			string firstName = "John";
 			string lastName = "Smith";
@@ -39,9 +39,8 @@ namespace UITest.Contacts
 			app.EnterText(email);
 			app.Tap(e => e.Text("Salvar"));
 
-			// Exclusão com swipe
-			// TODO: analisar swipePercentage; necessário quando inserimos um contato e em seguida tentamos remove-lo.
-			app.SwipeRightToLeft(firstName, swipePercentage: 0.9);
+			// Exclusão
+			app.TouchAndHold(firstName);
 			app.Tap(e => e.Text("Apagar"));
 		}
 	}
