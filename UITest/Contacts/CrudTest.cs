@@ -12,47 +12,50 @@ namespace UITest.Contacts
 		[Test]
 		public void BasicFlow()
 		{
-			string firstName = "John";
-			string lastName = "Smith";
-			string email = "john@smith.com";
+			//string firstName = "John";
+			//string lastName = "Smith";
+			//string email = "john@smith.com";
 
-			// Cadastro
-			//app.Tap(e => e.Id("tbiAdd"));//problemas no android
-			app.Tap(e => e.Text("Adicionar"));
-
-			app.EnterText(e => e.Marked("etrFirstName"), firstName);
-			app.EnterText(e => e.Marked("etrLastName"), lastName);
-			app.EnterText(e => e.Marked("etrEmail"), email);
-
-			//app.Tap(e => e.Id("tbiSave"));//problemas no android
-			app.Tap(e => e.Text("Salvar"));
+			app.Repl();
 
 
-			// Edição
-			app.Tap(e => e.Text(firstName));
+			//// Cadastro
+			////app.Tap(e => e.Id("tbiAdd"));//problemas no android
+			//app.Tap(e => e.Text("Adicionar"));
 
-			firstName = "Sr. John";
-			app.Tap(e => e.Marked("etrFirstName"));
-			app.ClearText();
-			app.EnterText(firstName);
+			//app.EnterText(e => e.Marked("etrFirstName"), firstName);
+			//app.EnterText(e => e.Marked("etrLastName"), lastName);
+			//app.EnterText(e => e.Marked("etrEmail"), email);
 
-			lastName = "A. Smith";
-			app.Tap(e => e.Marked("etrLastName"));
-			app.ClearText();
-			app.EnterText(lastName);
-
-			email = "john@asmith.com";
-			app.Tap(e => e.Marked("etrEmail"));
-			app.ClearText();
-			app.EnterText(email);
-			app.Tap(e => e.Text("Salvar"));
+			////app.Tap(e => e.Id("tbiSave"));//problemas no android
+			//app.Tap(e => e.Text("Salvar"));
 
 
-			// Exclusão
-			app.Tap(e => e.Text(firstName));
+			//// Edição
+			//app.Tap(e => e.Text(firstName));
 
-			//app.Tap(e => e.Id("btnDelete"));//problemas no android
-			app.Tap(e => e.Text("Apagar"));
+			//firstName = "Sr. John";
+			//app.Tap(e => e.Marked("etrFirstName"));
+			//app.ClearText();
+			//app.EnterText(firstName);
+
+			//lastName = "A. Smith";
+			//app.Tap(e => e.Marked("etrLastName"));
+			//app.ClearText();
+			//app.EnterText(lastName);
+
+			//email = "john@asmith.com";
+			//app.Tap(e => e.Marked("etrEmail"));
+			//app.ClearText();
+			//app.EnterText(email);
+			//app.Tap(e => e.Text("Salvar"));
+
+
+			//// Exclusão
+			//app.Tap(e => e.Text(firstName));
+
+			////app.Tap(e => e.Id("btnDelete"));//problemas no android
+			//app.Tap(e => e.Text("Apagar"));
 		}
 	}
 }
