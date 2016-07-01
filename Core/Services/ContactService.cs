@@ -11,27 +11,82 @@ namespace Core.Services
 
 		public async Task<IList<ContactModel>> Get()
 		{
-			return await base.Get<ContactModel> (_endPoint);
+			IList<ContactModel> response = new List<ContactModel>();
+
+			try
+			{
+				response = await base.Get<ContactModel>(_endPoint);
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Debug.WriteLine(e.Message);
+			}
+
+			return response;
 		}
 
 		public async Task<ContactModel> Get(string id)
 		{
-			return await base.Get<ContactModel> (_endPoint, id);
+			ContactModel response = new ContactModel();
+
+			try
+			{
+				response = await base.Get<ContactModel>(_endPoint, id);
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Debug.WriteLine(e.Message);
+			}
+
+			return response;
 		}
 
 		public async Task<ContactModel> Post(ContactModel contactModel)
 		{
-			return await base.Post<ContactModel> (_endPoint, contactModel);
+			ContactModel response = new ContactModel();
+
+			try
+			{
+				response = await base.Post<ContactModel>(_endPoint, contactModel);
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Debug.WriteLine(e.Message);
+			}
+
+			return response;
 		}
 
 		public async Task<ContactModel> Put(string id, ContactModel contactModel)
 		{
-			return await base.Put (_endPoint, id, contactModel);
+			ContactModel response = new ContactModel();
+
+			try
+			{
+				response = await base.Put(_endPoint, id, contactModel);
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Debug.WriteLine(e.Message);
+			}
+
+			return response;
 		}
 
 		public async Task<bool> Delete(string id)
 		{
-			return await base.Delete(_endPoint, id);
+			bool response = false;
+
+			try
+			{
+				response = await base.Delete(_endPoint, id);
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Debug.WriteLine(e.Message);
+			}
+
+			return response;
 		}
 	}
 }
