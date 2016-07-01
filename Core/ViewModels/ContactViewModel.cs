@@ -1,11 +1,10 @@
-﻿using System;
-using Core.Models;
-using System.Collections.Generic;
+﻿using Core.Models;
 using System.Threading.Tasks;
 using Core.Services;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Autofac;
 
 namespace Core.ViewModels
 {
@@ -23,7 +22,15 @@ namespace Core.ViewModels
 		private ContactService _contactService;
 		private ContactService ContactService
 		{
-			get { return (_contactService == null) ? _contactService = new ContactService() : _contactService; }
+			get
+			{
+				using (var scope = AppContainer.Container.BeginLifetimeScope())
+				{
+					_contactService = scope.Resolve<ContactService>();
+				}
+
+				return _contactService;
+			}
 		}
 
 		public ContactViewModel()

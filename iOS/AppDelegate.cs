@@ -18,7 +18,7 @@ namespace Core.iOS
 			Xamarin.Calabash.Start();
 			#endif
 
-			LoadApplication (new App ());
+			LoadApplication (new App (new AppSetup()));
 
 			return base.FinishedLaunching (app, options);
 		}

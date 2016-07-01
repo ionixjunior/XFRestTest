@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Autofac;
 using Core.Models;
 using Core.Services;
 using System.Windows.Input;
@@ -13,15 +13,14 @@ namespace Core.ViewModels
 
 		public ICommand DeleteCommand { get; private set; }
 
-		private ContactService _contactService { get; set; }
-
+		private ContactService _contactService;
 		private ContactService ContactService
 		{
-			get 
+			get
 			{
-				if (_contactService == null) 
+				using (var scope = AppContainer.Container.BeginLifetimeScope())
 				{
-					_contactService = new ContactService ();
+					_contactService = scope.Resolve<ContactService>();
 				}
 
 				return _contactService;

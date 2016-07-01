@@ -11,6 +11,7 @@ namespace Core.Services
 
 		public async Task<IList<ContactModel>> Get()
 		{
+			System.Diagnostics.Debug.WriteLine("## REAL CONTACT SERVICE INSTANCE ##");
 			IList<ContactModel> response = new List<ContactModel>();
 
 			try

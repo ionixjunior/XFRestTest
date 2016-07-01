@@ -7,8 +7,10 @@ namespace Core
 {
 	public class App : Application
 	{
-		public App ()
+		public App (AppSetup setup)
 		{
+			AppContainer.Container = setup.CreateContainer();
+
 			// The root page of your application
 			MainPage = new NavigationPage(new ContactView());
 		}
