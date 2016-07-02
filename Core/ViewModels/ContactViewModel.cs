@@ -1,10 +1,10 @@
 ﻿using Core.Models;
 using System.Threading.Tasks;
-using Core.Services;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using Autofac;
+using Core.Interfaces;
 
 namespace Core.ViewModels
 {
@@ -19,14 +19,14 @@ namespace Core.ViewModels
 			set { _contacts = value; INotifyPropertyChanged (); }
 		}
 
-		private ContactService _contactService;
-		private ContactService ContactService
+		private IContactService _contactService;
+		private IContactService ContactService
 		{
 			get
 			{
 				using (var scope = AppContainer.Container.BeginLifetimeScope())
 				{
-					_contactService = scope.Resolve<ContactService>();
+					_contactService = scope.Resolve<IContactService>();
 				}
 
 				return _contactService;

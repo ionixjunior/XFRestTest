@@ -1,0 +1,10 @@
+﻿using Core.Enums;
+
+namespace Core
+{
+	public static class AppEnvironment
+	{
+		public static EnvironmentEnum Environment { get; } = EnvironmentEnum.Test;
+	}
+}
+

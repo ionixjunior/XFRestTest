@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core.Interfaces;
 using Core.Models;
 
 namespace Core.Services
 {
-	public class ContactService : BaseService
+	public class ContactService : BaseService, IContactService
 	{
 		private string _endPoint = "/contacts";
 
 		public async Task<IList<ContactModel>> Get()
 		{
-			System.Diagnostics.Debug.WriteLine("## REAL CONTACT SERVICE INSTANCE ##");
 			IList<ContactModel> response = new List<ContactModel>();
 
 			try

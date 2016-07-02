@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Core.Models;
-using Core.Services;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using Core.Interfaces;
 
 namespace Core.ViewModels
 {
@@ -13,14 +13,14 @@ namespace Core.ViewModels
 
 		public ICommand DeleteCommand { get; private set; }
 
-		private ContactService _contactService;
-		private ContactService ContactService
+		private IContactService _contactService;
+		private IContactService ContactService
 		{
 			get
 			{
 				using (var scope = AppContainer.Container.BeginLifetimeScope())
 				{
-					_contactService = scope.Resolve<ContactService>();
+					_contactService = scope.Resolve<IContactService>();
 				}
 
 				return _contactService;

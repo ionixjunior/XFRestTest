@@ -1,5 +1,8 @@
 ﻿using Autofac;
+using Core.Enums;
+using Core.Interfaces;
 using Core.Services;
+using Core.Utils.Mock.Services;
 
 namespace Core
 {
@@ -8,13 +11,27 @@ namespace Core
 		public IContainer CreateContainer()
 		{
 			var containerBuilder = new ContainerBuilder();
-			RegisterDependencies(containerBuilder);
+
+			if (AppEnvironment.Environment == EnvironmentEnum.Test)
+			{
+				RegisterTestDependencies(containerBuilder);
+			}
+			else
+			{
+				RegisterDependencies(containerBuilder);
+			}
+
 			return containerBuilder.Build();
 		}
 
-		protected virtual void RegisterDependencies(ContainerBuilder cb)
+		protected void RegisterTestDependencies(ContainerBuilder cb)
 		{
-			cb.RegisterType<ContactService>().SingleInstance();
+			cb.RegisterType<MockContactService>().As<IContactService>().SingleInstance();
+		}
+
+		protected void RegisterDependencies(ContainerBuilder cb)
+		{
+			cb.RegisterType<ContactService>().As<IContactService>().SingleInstance();
 		}
 	}
 }
