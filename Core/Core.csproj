@@ -87,6 +87,7 @@
     <None Include="Utils\Environment\EnvironmentTest.txt" />
     <None Include="Utils\Environment\EnvironmentDev.txt" />
     <None Include="Hooks\before_build_dev.sh" />
+    <None Include="AppEnvironment.cs.sample" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

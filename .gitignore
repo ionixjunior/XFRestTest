@@ -1,6 +1,9 @@
 #Autosave files
 *~
 
+#Project files
+Core/AppEnvironment.cs
+
 #build
 [Oo]bj/
 [Bb]in/

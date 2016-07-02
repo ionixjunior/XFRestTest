@@ -1,0 +1,26 @@
+﻿using Core.Enums;
+
+/**
+ * Ao iniciar o projeto utilize esta classe como base para criar o arquivo
+ * AppEnvironment.cs na raiz do projeto Core. Ele é necessário para ser 
+ * possível compilar o projeto. 
+ *
+ * Após criado, este arquivo será atualizado dinamicamente ao realizar as 
+ * as compilações, permitindo controlar de forma dinamica o ambiente de 
+ * desenvolvimento. 
+ * 
+ * Quando compilado projeto UITest, valor do Environment será 
+ * Test. Quando compilado os projetos iOS ou Android, Environment terá o 
+ * valor Dev.
+ * Essa abordagem é útil para controlar as dependências necessárias
+ * em cada um destes projetos.
+ */
+namespace Core
+{
+	public static class AppEnvironment
+	{
+		public static EnvironmentEnum Environment { get; } = EnvironmentEnum.Dev;
+	}
+}
+
+
